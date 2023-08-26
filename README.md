@@ -26,11 +26,11 @@
 | price          | integer    | null:false                    |
 | explanation    | text       | null:false                    | 
 | user           | references | null:false, foreign_key: true |
-| category_id    | integer    | null:false, foreign_key: true |
-| status_id      | integer    | null:false  foreign_key: true |
-| postage_id     | integer    | null:false  foreign_key: true |
-| region_id      | integer    | null:false  foreign_key: true |
-| post_day_id    | integer    | null:false  foreign_key: true |
+| category_id    | integer    | null:false                    |
+| status_id      | integer    | null:false                    |
+| postage_id     | integer    | null:false                    |
+| prefecture_id  | integer    | null:false                    |
+| post_day_id    | integer    | null:false                    |
 
 
 
@@ -48,8 +48,8 @@
 
 ### Association
 
-- belongs_to :users
-- belongs_to :items
+- belongs_to :user
+- belongs_to :item
 
 ## purchases テーブル
 
@@ -60,8 +60,8 @@
 
 
 ### Association
-- belongs_to :users
-- belongs_to :items
+- belongs_to :user
+- belongs_to :item
 - has_one :destination
 
 
@@ -69,14 +69,14 @@
 
 | Column        | Type       | Options                       |
 | ------------- | ---------- | ----------------------------- |
-| post_number   | integer    | null:false                    |
-| prefecture    | string     | null:false                    |
+| post_number   | string     | null:false                    |
+| prefecture_id | integer    | null:false                    |
 | municipality  | string     | null:false                    |
 | street_address| string     | null:false                    |
-| building_name | string     | null:true                     |
-| phone_number  | integer    | null:false                    |
+| building_name | string     |                               |
+| phone_number  | string     | null:false                    |
 | purchase      | references | null:false, foreign_key: true |
 
 
 ### Association
-- belongs_to :purchases
+- belongs_to :purchase
