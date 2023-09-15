@@ -9,7 +9,7 @@ class Item < ApplicationRecord
   validates :category_id, numericality: { other_than: 1, message: "can't be blank" }
   validates :status_id, numericality: { other_than: 1, message: "can't be blank" }
   validates :postage_id, numericality: { other_than: 1, message: "can't be blank" }
-  validates :prefecture_id, presence: true
+  validates :prefecture_id, numericality: { other_than: 1, message: "can't be blank" }
   validates :post_day_id, presence: true
 
   validates :image, presence: true
@@ -18,4 +18,5 @@ class Item < ApplicationRecord
   belongs_to :category
   belongs_to :status
   belongs_to :postage
+  belongs_to :prefecture
 end
