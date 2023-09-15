@@ -8,7 +8,7 @@ class Item < ApplicationRecord
   validates :explanation, presence: true
   validates :category_id, numericality: { other_than: 1, message: "can't be blank" }
   validates :status_id, numericality: { other_than: 1, message: "can't be blank" }
-  validates :postage_id, presence: true
+  validates :postage_id, numericality: { other_than: 1, message: "can't be blank" }
   validates :prefecture_id, presence: true
   validates :post_day_id, presence: true
 
@@ -16,4 +16,6 @@ class Item < ApplicationRecord
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :category
+  belongs_to :status
+  belongs_to :postage
 end
