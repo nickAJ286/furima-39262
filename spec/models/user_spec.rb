@@ -54,7 +54,7 @@ RSpec.describe User, type: :model do
         @user.password = Faker::Internet.password(min_length: 129, max_length: 150)
         @user.password_confirmation = @user.password
         @user.valid?
-        expect(@user.errors.full_messages).to include("Password is too long (maximum is 128 characters)")
+        expect(@user.errors.full_messages).to include('Password is too long (maximum is 128 characters)')
       end
       it 'passwordが英字のみでは登録できない' do
         @user.password = 'aaaaaa'
@@ -97,52 +97,52 @@ RSpec.describe User, type: :model do
       it 'family_nameが半角では登録できない' do
         @user.family_name = 'ﾔﾏﾀﾞ'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Family name is invalid. Input full-width characters")
+        expect(@user.errors.full_messages).to include('Family name is invalid. Input full-width characters')
       end
       it 'first_nameが半角では登録できない' do
         @user.first_name = 'ﾀﾛｳ'
         @user.valid?
-        expect(@user.errors.full_messages).to include("First name is invalid. Input full-width characters")
+        expect(@user.errors.full_messages).to include('First name is invalid. Input full-width characters')
       end
       it 'family_name_kanaが半角では登録できない' do
         @user.family_name_kana = 'ﾔﾏﾀﾞ'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Family name kana is invalid.Input full-width katakana characters")
+        expect(@user.errors.full_messages).to include('Family name kana is invalid.Input full-width katakana characters')
       end
       it 'first_name_kanaが半角では登録できない' do
         @user.first_name_kana = 'ﾀﾛｳ'
         @user.valid?
-        expect(@user.errors.full_messages).to include("First name kana is invalid.Input full-width katakana characters")
+        expect(@user.errors.full_messages).to include('First name kana is invalid.Input full-width katakana characters')
       end
       it 'family_nameが英字では登録できない' do
         @user.family_name = 'YAMADA'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Family name is invalid. Input full-width characters")
+        expect(@user.errors.full_messages).to include('Family name is invalid. Input full-width characters')
       end
       it 'first_nameが英字では登録できない' do
         @user.first_name = 'TAROU'
         @user.valid?
-        expect(@user.errors.full_messages).to include("First name is invalid. Input full-width characters")
+        expect(@user.errors.full_messages).to include('First name is invalid. Input full-width characters')
       end
       it 'family_name_kanaが英字では登録できない' do
         @user.family_name_kana = 'YAMADA'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Family name kana is invalid.Input full-width katakana characters")
+        expect(@user.errors.full_messages).to include('Family name kana is invalid.Input full-width katakana characters')
       end
       it 'first_name_kanaが英字では登録できない' do
         @user.first_name_kana = 'TAROU'
         @user.valid?
-        expect(@user.errors.full_messages).to include("First name kana is invalid.Input full-width katakana characters")
+        expect(@user.errors.full_messages).to include('First name kana is invalid.Input full-width katakana characters')
       end
       it 'family_name_kanaがひらがなでは登録できない' do
         @user.family_name_kana = 'やまだ'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Family name kana is invalid.Input full-width katakana characters")
+        expect(@user.errors.full_messages).to include('Family name kana is invalid.Input full-width katakana characters')
       end
       it 'first_name_kanaがひらがなでは登録できない' do
         @user.first_name_kana = 'たろう'
         @user.valid?
-        expect(@user.errors.full_messages).to include("First name kana is invalid.Input full-width katakana characters")
+        expect(@user.errors.full_messages).to include('First name kana is invalid.Input full-width katakana characters')
       end
       it 'birthdayが空では登録できない' do
         @user.birthday = ''
