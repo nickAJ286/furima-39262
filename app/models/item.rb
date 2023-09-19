@@ -22,12 +22,4 @@ class Item < ApplicationRecord
   belongs_to :postage
   belongs_to :prefecture
   belongs_to :post_day
-
-  private
-
-  def validate_integer_price
-    return unless price.present? && !/\A[0-9]+\z/.match?(price.to_s)
-
-    errors.add(:price, 'is invalid. Input half-width characters')
-  end
 end
