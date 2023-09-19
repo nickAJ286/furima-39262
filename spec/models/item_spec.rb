@@ -17,6 +17,16 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("Name can't be blank")
       end
+      it '画像が空では登録できない' do
+        @item.image = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Image can't be blank")
+      end
+      it 'priceが空では登録できない' do
+        @item.price = ''
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Price can't be blank")
+      end
       it 'priceが300未満では登録できない' do
         @item.price = rand(1..299)
         @item.valid?
@@ -61,6 +71,11 @@ RSpec.describe Item, type: :model do
         @item.post_day_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Post day can't be blank")
+      end
+      it 'userが紐付いていないと保存できない' do
+        @item.user = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include('User must exist')
       end
     end
   end
