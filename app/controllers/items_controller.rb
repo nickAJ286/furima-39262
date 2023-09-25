@@ -23,6 +23,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    redirect_to action: :index if Order.exists?(item_id: @item.id)
     return if current_user.id == @item.user_id
 
     redirect_to action: :index
@@ -38,10 +39,8 @@ class ItemsController < ApplicationController
 
   def destroy
     item = Item.find(params[:id])
-    if current_user.id == item.user_id
-      item.destroy
-    end
-      redirect_to root_path
+    item.destroy if current_user.id == item.user_id
+    redirect_to root_path
   end
 
   private
