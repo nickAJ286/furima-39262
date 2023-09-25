@@ -67,7 +67,12 @@ RSpec.describe OrderDestination, type: :model do
       it 'phone_numberが10文字未満では登録できないこと' do
         @order_destination.phone_number = '090123456'
         @order_destination.valid?
-        expect(@order_destination.errors.full_messages).to include('Phone number is too short')
+        expect(@order_destination.errors.full_messages).to include('Phone number is too short or too long')
+      end
+      it 'phone_numberが12文字以上では登録できないこと' do
+        @order_destination.phone_number = '090123456789'
+        @order_destination.valid?
+        expect(@order_destination.errors.full_messages).to include('Phone number is too short or too long')
       end
       it 'tokenが空だと保存できないこと' do
         @order_destination.token = ''
