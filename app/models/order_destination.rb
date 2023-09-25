@@ -3,14 +3,14 @@ class OrderDestination
   attr_accessor :user_id, :item_id, :post_number, :prefecture_id, :municipality, :street_address, :building_name, :phone_number,
                 :token
 
-  validates :post_number, presence: true,
-                          format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: 'is invalid. Enter it as follows (e.g. 123-4567)' }
   validates :prefecture_id, numericality: { other_than: 1, message: "can't be blank" }
   with_options presence: true do
-    validates :municipality, :street_address, :user_id, :item_id, :token
+    validates :token, :municipality, :street_address, :user_id, :item_id
+    validates :post_number, format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: 'is invalid. Enter it as follows (e.g. 123-4567)' }
     validates :phone_number, format: { with: /\A[0-9]+\z/, message: 'is invalid. Input only number' },
                              length: { in: 10..11, message: 'is too short' }
   end
+  
 
   def save
     order = Order.create(user_id: user_id, item_id: item_id)
