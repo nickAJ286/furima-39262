@@ -12,6 +12,7 @@ class OrdersController < ApplicationController
   def create
     @order_destination = OrderDestination.new(order_params)
     if @order_destination.valid?
+      pay_item
       @order_destination.save
       redirect_to root_path
     else
@@ -28,7 +29,7 @@ class OrdersController < ApplicationController
   end
 
   def pay_item
-    Payjp.api_key = ENV['PAYJP_SECRET_KEY']
+    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
     Payjp::Charge.create(
       amount: @item.price, # 商品の値段
       card: order_params[:token], # カードトークン
