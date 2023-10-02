@@ -1,0 +1,23 @@
+#previews {
+  display: flex;
+  height: 500;
+  width: 500;
+}
+
+.preview {
+  margin-right: 30px;
+}
+
+.image-delete-button {
+  text-align: center;
+  border: solid 1px;
+  cursor: pointer;
+  margin-bottom: 5px;
+}
+
+.preview-image {
+  max-width: 100%; /* プレビュー画像の最大幅を100%に設定（親要素に合わせる） */
+  max-height: 300px; /* 画像の最大高さを設定 */
+  border: 1px solid #ccc; /* 枠線を追加（任意のスタイルに変更可能） */
+  margin: 10px; /* 余白を追加（任意の値に変更可能） */
+}
