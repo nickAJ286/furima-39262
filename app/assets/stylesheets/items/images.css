@@ -1,6 +1,6 @@
-img {
-  height: 100px;
-  width: 100px;
+.item-box-img {
+  height: 300px;
+  width: 300px;
   /* 縦横比を保ったまま、画像を縦横100pxのサイズに収めるプロパティです */
   object-fit: contain;
 }
@@ -11,6 +11,9 @@ img {
 
 .other-image {
   margin-right: 10px;
+  height: 300px;
+  width: 300px;
+  object-fit: contain;
 }
 
 .image-delete-button {
