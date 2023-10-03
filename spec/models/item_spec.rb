@@ -20,7 +20,7 @@ RSpec.describe Item, type: :model do
       it '画像が空では登録できない' do
         @item.image = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("Image can't be blank")
+        expect(@item.errors.full_messages).to include("Imageは1枚以上5枚以下にしてください")
       end
       it 'priceが空では登録できない' do
         @item.price = ''
