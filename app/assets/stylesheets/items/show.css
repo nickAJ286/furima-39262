@@ -141,6 +141,13 @@
 
 /* /商品の概要 */
 
+.comment {
+  display: flex;
+  background-color: #FFF;
+  width:40vw;
+  border: solid 1px #dedede;
+}
+
 .comment-box {
   width: 40vw;
   background-color: #fff;
@@ -204,4 +211,9 @@
   text-decoration: none;
   font-weight: bold;
   font-size: 23px;
+}
+.comment-submit {
+  color: #fff;
+  background-color: #3CCACE;
+  border: none;
 }
